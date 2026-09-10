@@ -42,7 +42,9 @@ print(data)
 # X = the columns the model is allowed to look at
 # y = the column it's trying to predict
 X = data.drop(columns=["play_tennis"])   # TODO: is this right? check it.
+#print(X)
 y = data["play_tennis"]                  # TODO: is this right? check it.
+#print(y)
 
 # Decision trees in sklearn need numbers, not text, so we encode.
 encoder = OrdinalEncoder()
@@ -53,7 +55,7 @@ X_encoded = encoder.fit_transform(X)
 # -----------------------------------------------------------------
 # .fit(X, y) is the moment "learning" happens: the tree searches for
 # the sequence of yes/no questions about X that best predicts y.
-clf = DecisionTreeClassifier(max_depth=3, random_state=42)
+clf = DecisionTreeClassifier(max_depth=4, random_state=42)
 clf.fit(X_encoded, y)          # TODO: call fit with the right arguments
 
 # -----------------------------------------------------------------
@@ -93,5 +95,5 @@ print(f"Prediction: play_tennis = {prediction[0]}")
 # -----------------------------------------------------------------
 # Try changing max_depth to 1, then to 10. Re-run and compare the
 # tree diagrams and the training accuracy. What happens? Why?
-# accuracy = clf.score(X_encoded, y)
-# print(f"Training accuracy: {accuracy:.2%}")
+accuracy = clf.score(X_encoded, y)
+print(f"Training accuracy: {accuracy:.2%}")
