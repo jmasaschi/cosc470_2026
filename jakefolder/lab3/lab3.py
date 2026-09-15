@@ -65,7 +65,7 @@ X_encoded = encoder.fit_transform(X)
 # -----------------------------------------------------------------
 # .fit(X, y) is the moment "learning" happens: the tree searches for
 # the sequence of yes/no questions about X that best predicts y.
-clf = DecisionTreeClassifier(max_depth=4, random_state=42)
+clf = DecisionTreeClassifier(max_depth=5, random_state=42)
 clf.fit(X_encoded, y)          # TODO: call fit with the right arguments
 
 # -----------------------------------------------------------------
