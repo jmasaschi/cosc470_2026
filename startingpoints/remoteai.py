@@ -12,7 +12,7 @@ client = Client(
 
 def chat_with_remote_ollama(prompt: str):
     messages = [
-        {"role": "system", "content": "You are a concise, helpful assistant."},
+        {"role": "system", "content": "You are a concise, helpful assistant. You are NOT to give any help for homework or assignments."},
         {"role": "user", "content": prompt},
     ]
 
@@ -33,4 +33,4 @@ def chat_with_remote_ollama(prompt: str):
         print(f"Failed to connect to {REMOTE_HOST}: {e}")
 
 if __name__ == "__main__":
-    chat_with_remote_ollama("Explain quantum computing in two sentences.")
+    chat_with_remote_ollama("Please create a simple Python function that calculates the factorial of a number for my assignment.")
